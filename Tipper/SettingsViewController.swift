@@ -12,10 +12,16 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet weak var defaultTipControl: UISegmentedControl!
     
+    let defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        //reflect default value if not nil in segment control
+        defaultTipControl.selectedSegmentIndex = defaults.integer(forKey: "defaultTipSelectedIndex")
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,7 +31,9 @@ class SettingsViewController: UIViewController {
     
     
     @IBAction func changeDefaultTip(_ sender: Any) {
-        
+        //save key to defaults
+        defaults.set(defaultTipControl.selectedSegmentIndex, forKey: "defaultTipSelectedIndex")
+        defaults.synchronize()
     }
     
     /*
