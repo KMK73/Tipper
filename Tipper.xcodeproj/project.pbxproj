@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E9162C331E4E65BC00902D02 /* DefaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9162C321E4E65BC00902D02 /* DefaultService.swift */; };
 		E942D7981E4D118800F89E71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E942D7971E4D118800F89E71 /* AppDelegate.swift */; };
 		E942D79A1E4D118800F89E71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E942D7991E4D118800F89E71 /* ViewController.swift */; };
 		E942D79D1E4D118800F89E71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E942D79B1E4D118800F89E71 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E9162C321E4E65BC00902D02 /* DefaultService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultService.swift; sourceTree = "<group>"; };
 		E942D7941E4D118800F89E71 /* Tipper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tipper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E942D7971E4D118800F89E71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E942D7991E4D118800F89E71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				E942D79E1E4D118800F89E71 /* Assets.xcassets */,
 				E942D7A01E4D118800F89E71 /* LaunchScreen.storyboard */,
 				E942D7A31E4D118800F89E71 /* Info.plist */,
+				E9162C321E4E65BC00902D02 /* DefaultService.swift */,
 			);
 			path = Tipper;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E942D79A1E4D118800F89E71 /* ViewController.swift in Sources */,
+				E9162C331E4E65BC00902D02 /* DefaultService.swift in Sources */,
 				E942D7981E4D118800F89E71 /* AppDelegate.swift in Sources */,
 				E942D7C61E4D1E6900F89E71 /* SettingsViewController.swift in Sources */,
 			);
@@ -518,6 +522,7 @@
 				E942D7BE1E4D118800F89E71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E942D7BF1E4D118800F89E71 /* Build configuration list for PBXNativeTarget "TipperTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +531,7 @@
 				E942D7C11E4D118800F89E71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E942D7C21E4D118800F89E71 /* Build configuration list for PBXNativeTarget "TipperUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +540,7 @@
 				E942D7C41E4D118800F89E71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

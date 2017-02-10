@@ -27,27 +27,13 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        // Start color off with a default value
-        var color = lightGreen
-        
-        if let backColor = defaults.object(forKey:"themeColor") as? String {
-            switch backColor {
-                case "lightGreen": color = lightGreen
-                case "lightGrey": color = lightGrey
-                default: break
-            }
-        }
-    
-        view.backgroundColor = color
-        
-        
-        //reflect default value if not nil in segment control 
-        percentSegmentControl.selectedSegmentIndex = defaults.integer(forKey: "defaultTipSelectedIndex")
+
+        setDefaultValues()
         
         if(billTextField.text != nil){
             calculateTip(self)
@@ -55,19 +41,24 @@ class ViewController: UIViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        //print("view did appear")
+    private func setDefaultValues() {
+        
+        //reflect default value if not nil in segment control
+        percentSegmentControl.selectedSegmentIndex = DefaultService.getDefaultTipIndex()
+        view.backgroundColor = DefaultService.getBackgroundColor()
+        
+        let defaultBillAmount = DefaultService.getDefaultBillAmount()
+        billTextField.text = String(defaultBillAmount)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        //print("view will disappear")
+    private func saveToDefaultService() {
+        DefaultService.saveBillAmount(billAmount: Double(billTextField.text!) ?? 0)
+        DefaultService.saveLastOpenedDate()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        //print("view did disappear")
+    func appDidEnterBackground() {
+        //save when user enters background 
+        saveToDefaultService()
     }
 
     @IBAction func calculateTip(_ sender: AnyObject) {
@@ -77,15 +68,20 @@ class ViewController: UIViewController {
         //get bill value default 0
         let bill = Double(billTextField.text!) ?? 0
         let tip = bill * tipPercentages[percentSegmentControl.selectedSegmentIndex]
+        DefaultService.saveTipIndex(index: percentSegmentControl.selectedSegmentIndex)
         let total = bill * tip;
         
         //set labels
         tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
+        
+        saveToDefaultService()
     }
     
     @IBAction func OnTap(_ sender: Any) {
         view.endEditing(true)
     }
+
+
 }
 

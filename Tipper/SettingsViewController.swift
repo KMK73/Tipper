@@ -24,24 +24,9 @@ class SettingsViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         //reflect default value if not nil in segment control
-        defaultTipControl.selectedSegmentIndex = defaults.integer(forKey: "defaultTipSelectedIndex")
-        
-        // Start color off with a default value
-        var color = lightGreen
-        
-        if let backColor = defaults.object(forKey:"themeColor") as? String {
-            switch backColor {
-            case "lightGreen":
-                color = lightGreen
-                themeSwitch.isOn = false;
-            case "lightGrey":
-                color = lightGrey
-                themeSwitch.isOn = true;
-            default: break
-            }
-        }
-        
-       view.backgroundColor = color
+        defaultTipControl.selectedSegmentIndex = DefaultService.getDefaultTipIndex()
+        themeSwitch.isOn = DefaultService.getThemeSwitchValue()
+        view.backgroundColor = DefaultService.getBackgroundColor()
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,7 +37,7 @@ class SettingsViewController: UIViewController {
     
     @IBAction func changeDefaultTip(_ sender: Any) {
         //save key to defaults
-        defaults.set(defaultTipControl.selectedSegmentIndex, forKey: "defaultTipSelectedIndex")
+        DefaultService.saveTipIndex(index: defaultTipControl.selectedSegmentIndex)
         defaults.synchronize()
     }
     
@@ -61,20 +46,18 @@ class SettingsViewController: UIViewController {
         //if switched on theme is grey
         
         if(themeSwitch.isOn){
-            //change to grey 
-            view.backgroundColor = lightGrey
-            //change defaults 
-            defaults.set("lightGrey", forKey: "themeColor")
-            defaults.synchronize()
-        } else {
-            //change to green
-            view.backgroundColor = lightGreen
-            //change defaults
-            defaults.set("lightGreen", forKey: "themeColor")
-            defaults.synchronize()
             
+            //change defaults 
+            DefaultService.saveThemeToService(string: "lightGrey", withKey: "theme_color")
+        } else {
+
+            //change defaults
+            DefaultService.saveThemeToService(string: "lightGreen", withKey: "theme_color")
         }
-        
+        defaults.synchronize()
+
+        //change to grey
+        view.backgroundColor = DefaultService.getBackgroundColor()
     }
     
     
