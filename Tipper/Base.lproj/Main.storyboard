@@ -173,18 +173,39 @@
                                     <action selector="changeDefaultTip:" destination="Upq-dI-vwD" eventType="valueChanged" id="GHW-CI-RM7"/>
                                 </connections>
                             </segmentedControl>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SwD-tC-z2A">
+                                <rect key="frame" x="255" y="214" width="51" height="31"/>
+                                <color key="onTintColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="thumbTintColor" red="0.16862745100000001" green="0.24313725489999999" blue="0.31764705879999999" alpha="1" colorSpace="deviceRGB"/>
+                                <connections>
+                                    <action selector="themeChanged:" destination="Upq-dI-vwD" eventType="valueChanged" id="kiH-UR-hrH"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grey Theme On" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pQ-7K-yAw">
+                                <rect key="frame" x="16" y="214" width="213" height="29"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                <color key="textColor" red="0.16862745100000001" green="0.24313725489999999" blue="0.31764705879999999" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.004205677192658186" green="0.99388629198074341" blue="0.73176485300064087" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="VJM-6r-6D1" firstAttribute="top" secondItem="8wG-3Y-3td" secondAttribute="bottom" constant="21" id="3pA-vD-2Vk"/>
+                            <constraint firstItem="SwD-tC-z2A" firstAttribute="leading" secondItem="4pQ-7K-yAw" secondAttribute="trailing" constant="26" id="4VW-Ea-bzt"/>
                             <constraint firstItem="VJM-6r-6D1" firstAttribute="leading" secondItem="8wG-3Y-3td" secondAttribute="leading" id="9dY-CT-iDm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VJM-6r-6D1" secondAttribute="trailing" id="Jg4-QZ-bN6"/>
                             <constraint firstItem="8wG-3Y-3td" firstAttribute="top" secondItem="kiF-BY-Mob" secondAttribute="bottom" constant="21" id="MXz-av-OZm"/>
+                            <constraint firstItem="4pQ-7K-yAw" firstAttribute="top" secondItem="VJM-6r-6D1" secondAttribute="bottom" constant="44" id="Vph-Pd-zJX"/>
                             <constraint firstAttribute="leadingMargin" secondItem="8wG-3Y-3td" secondAttribute="leading" id="ZTo-OZ-Jsq"/>
+                            <constraint firstItem="SwD-tC-z2A" firstAttribute="centerY" secondItem="4pQ-7K-yAw" secondAttribute="centerY" id="a2a-HM-kgg"/>
+                            <constraint firstItem="4pQ-7K-yAw" firstAttribute="leading" secondItem="VJM-6r-6D1" secondAttribute="leading" id="jir-tL-Suk"/>
+                            <constraint firstItem="SwD-tC-z2A" firstAttribute="trailing" secondItem="VJM-6r-6D1" secondAttribute="trailing" id="lhG-HS-197"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="defaultTipControl" destination="VJM-6r-6D1" id="DSs-Q8-gDJ"/>
+                        <outlet property="themeLabel" destination="4pQ-7K-yAw" id="KGE-2C-GUA"/>
+                        <outlet property="themeSwitch" destination="SwD-tC-z2A" id="qpg-6L-BFx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gbs-GS-gE2" userLabel="First Responder" sceneMemberID="firstResponder"/>
